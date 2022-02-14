@@ -1,7 +1,7 @@
 /**
  * @file varwid.c
  * @author your name (you@domain.com)
- * @brief * 使用可变宽度输出字段；宽度不是直接指定，而是通过传递参数
+ * @brief printf f* 使用可变宽度输出字段；宽度不是直接指定，而是通过传递参数
  * @version 0.1
  * @date 2022-02-13
  *
