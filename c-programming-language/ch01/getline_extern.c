@@ -1,3 +1,13 @@
+/**
+ * @file getline_extern.c
+ * @author your name (you@domain.com)
+ * @brief extern 外部变量使用
+ * @version 0.1
+ * @date 2022-02-18
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include <stdio.h>
 
 // 最大输入行的大小

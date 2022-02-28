@@ -53,6 +53,6 @@ void *malloc(unsigned nbytes)
     if ((prevp = freep) == NULL)
     {
         // 没有空闲列表
-        
+        base.size
     }
 }
