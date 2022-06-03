@@ -1,24 +1,22 @@
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <cctype>
+#include "algorithm_impl.h"
+#include <iostream>
 
-using std::copy;
+using std::cin;
+using std::cout;
+using std::endl;
 using std::string;
 using std::vector;
-// 迭代器适配器
-using std::back_inserter;
 
-string::const_iterator url_end(string::const_iterator, string::const_iterator);
-
-
-bool not_url_char(char c)
+int main()
 {
-    static const string url_ch = "~;/?:@=&$-_.+!*'(),'";
-    return !(isalnum(c) || find(url_ch.begin(), url_ch.end(), c) != url_end());
-}
+    cout << "Please enter a URL str: ";
+    string url;
+    cin >> url;
 
-string::const_iterator url_end(string::const_iterator b, string::const_iterator e)
-{
-    return find_if(b, e, not_url_char);
+    vector<string> ret = find_urls(url);
+    for (vector<string>::const_iterator it = ret.begin(); it != ret.end(); it++)
+    {
+        cout << *it << endl;
+    }
+    return 0;
 }

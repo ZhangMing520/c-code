@@ -9,4 +9,8 @@ std::vector<std::string> split(const std::string &);
 
 bool is_palindrom(const std::string &);
 
+std::vector<std::string> find_urls(const std::string &s);
+
+bool not_url_char(char c);
+
 #endif
