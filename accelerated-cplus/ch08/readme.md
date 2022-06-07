@@ -51,3 +51,18 @@ copy(istream_iterator<int>(cin), istream_iterator<int>(), back_inserter(v));
 // 输出 v 的元素，元素之间使用一个空格隔开
 copy(v.begin(), v.end(), ostream_iterator<int>(cout," "));
 ```
+
+5. 类型不全部出现在参数列表中
+
+> 模板函数，如果类型不全部出现在参数列表中，那么调用程序就必须用具体的类型来限定 function-name （函数名）
+
+```cpp
+// 参数类型是用来为返回类型命名的
+template <class T> T zero() { return 0; }
+
+// 明确地提供返回类型
+double x = zero<double>();
+
+// 如果在声明中使用了模板类型参数定义的类型，就必须用关键字 typename 来限定这个声明
+typename T::size_type name;
+```
