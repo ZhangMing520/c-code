@@ -62,7 +62,6 @@ private:
     void unchecked_append(const T &);
 };
 
-
 template <class T>
 Vec<T> &Vec<T>::operator=(const Vec &rhs)
 {
