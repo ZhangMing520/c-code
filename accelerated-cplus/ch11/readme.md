@@ -107,3 +107,34 @@ string y;
 // 赋值
 y = url_ch;
 ```
+
+8. 三位一体（rule of three）
+
+> 如果类需要一个析构函数，那么它同时可能需要一个复制构造函数与一个复制运算符函数
+
+9. new的弊端
+
+- 如果使用了 new 和 delete 运算符，写出来的 Vec 类使用起来就要受到诸多限制，就不如标准向量类的使用范围那么广了。
+
+- C++ 内建的 new 运算符要做许多工作：既要分配新的内存空间，又要对新内存进行初始化。在为一个类型为 T 的数组分配空间时，需要去调用 T 的默认构造函数。
+
+- 使用 new 运算符还可能会为程序带来过多的资源开销。使用 new ，它会使用 T::T() 构造函数来为一个类型为 T 的数组中的每一个元素都进行初始化。如果想用自己提供的数据来初始化 Vec 类型对象的元素的话，实现上要进行两次初始化 -- 一次是 new 自动进行的，另一次是在把用户提供的数值赋给 Vec 类型对象的元素时进行的。
+
+10. allocator
+
+> 在 \<memory> 头文件中提供了一个名为 allocator\<T> 的类，它可以分配一块预备用来储存 T 类型对象但是尚未被初始化的内存块，并返回一个指向这块内存块的头元素的指针。
+
+```cpp
+template <class T> class allocator{
+public:
+    T* allocate(size_t);
+    T* deallocate(T*, size_t);
+    // 用来在 allocate 申请分配但尚未初始化的内存区域上进行初始化，生成单个的对象
+    T* construct(T*, T);
+    // 用来删除这个对象
+    T* destroy(T*);
+};
+
+void uninitialized_fill(T*, T*, const T&);
+T* uninitialized_copy(T*, T*, T*);
+```
