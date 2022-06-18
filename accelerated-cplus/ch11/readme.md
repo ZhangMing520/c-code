@@ -127,7 +127,9 @@ y = url_ch;
 ```cpp
 template <class T> class allocator{
 public:
+    // 用来分配一块被制定了类型但却未被初始化的内存块
     T* allocate(size_t);
+    // 用来释放未被初始化的内存
     T* deallocate(T*, size_t);
     // 用来在 allocate 申请分配但尚未初始化的内存区域上进行初始化，生成单个的对象
     T* construct(T*, T);
@@ -135,6 +137,9 @@ public:
     T* destroy(T*);
 };
 
+// 对 allocate 所分配的内存进行初始化
+// 向内存块中填充一个指定的值
 void uninitialized_fill(T*, T*, const T&);
+// 把前两个参数指针所指向的内存区间中的值复制到第三个参数指针所指向的目标内存块中
 T* uninitialized_copy(T*, T*, T*);
 ```
