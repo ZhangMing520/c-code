@@ -1,6 +1,15 @@
 #ifndef GUARD_handle_h
 #define GUARD_handle_h
-
+/**
+ * @file handle.h
+ * @author your name (you@domain.com)
+ * @brief 第一版本总是对底层对象进行复制
+ * @version 0.1
+ * @date 2022-06-21
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include <stdexcept>
 
 template <class T>
