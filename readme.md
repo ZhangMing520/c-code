@@ -32,7 +32,6 @@
 | %u | 把输入解释成一个无符号十进制整数 |
 | %x %X | 把输入解释成有符号十六进制帧数 |
 
-
 3. sizeof 
 
 - 是否使用圆括号取决于是想获取一个类型的大小还是想获取某个具体量的大小。圆括号对于类型是必须的，而对于具体量则是可选的。在所有情况下都是用圆括号会更好
@@ -95,7 +94,6 @@ n = 3;
 // 编译器可能使用n的旧值一次，增加n值一次 y=7
 y = n++ + n++;
 ```
-
 |运算符（优先级递减）|结合性|
 |:--:|:--: | 
 | () | 从左到右 |
@@ -110,12 +108,12 @@ y = n++ + n++;
 
 - 表达式（expression）是由运算符和操作数组合构成的。每一个C表达式都有一个值
 
-| 表达式 | 值 |
-|:--:|:--:|
-| -4+6 | 2 |
-| c=3+8 | 11 |
-| 5>3 | 1 |
-| 6+(c=3+8) | 17 |
+|  表达式   |  值   |
+| :-------: | :---: |
+|   -4+6    |   2   |
+|   c=3+8   |  11   |
+|    5>3    |   1   |
+| 6+(c=3+8) |  17   |
 
 - 语句（statement）是构造程序的基本成分。程序（Program）是一系列带有某种必须的标点的语句集合。一个语句是一条完整的计算机指令。在C中，语句用结束处的一个分号标识。
 - 不是所有完整的指令都是语句
@@ -151,4 +149,36 @@ x=(y=3,(z=++y+2)+5)
 int x = (houseprice = 149, 500);
 // 500
 int houseprice = (249, 500);
+```
+
+
+
+#### 问题
+
+1. [why-can-templates-only-be-implemented-in-the-header-file](https://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file)
+
+> The only portable way of using templates at the moment is to implement them in header files by using inline functions.
+
+2. this exceeds GitHub's file size limit of 100.00 MB
+
+> remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+
+```shell
+
+# deb 添加仓库
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt install git-lfs
+
+# set up Git LFS for your user account by running:
+git lfs install
+
+# In each Git repository where you want to use Git LFS, select the file types you'd like Git LFS to manage (or directly edit your .gitattributes).
+git lfs track "*.psd"
+
+# make sure .gitattributes is tracked
+git add .gitattributes
+
+# Just commit and push to GitHub as you normally would
+git push 
+
 ```
